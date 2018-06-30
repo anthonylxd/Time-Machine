@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 为dao层接口方法提供sql语句配置 -->
+<mapper namespace="com.dao.TeamDao">
+	
+	<update id="updateTeam">
+		update Team set name = 
+	</update>
+	
+	<insert id="insertTeam"></insert>
+
+	<delete id="deleteTeam">
+	delete Team where id = 
+	</delete>
+	
+	<select id="queryall" resultType="Team">
+	select id,name,simplename,league,cup,level from Team limit #{offset},#{limit}
+	</select>
+	
+	<select id="queryById" resultType="Team">
+	select id,name,simplename from Team id = #{id}
+	</select>
+	
+</mapper>
