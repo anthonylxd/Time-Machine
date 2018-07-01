@@ -11,26 +11,36 @@
 </head>
 <body>
 <div class="container">
-	<div class="row">
+	<div class="row center-vertical">
 		<form class="form-horizontal col-md-5 col-md-offset-3">
 			<div class="form-group">
 				<label class="col-sm-4 control-label">用户名</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" placeholder="请设置您的用户名"/>
+					<input type="text" class="form-control" placeholder="请输入用户名"/>
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-4 control-label">密码</label>
+				<label class="col-sm-4 control-label">注册邮箱</label>
 				<div class="col-sm-8">
-					<input type="password" class="form-control" placeholder="请设置您的登录密码"/>
+					<input type="password" class="form-control" placeholder="请输入注册邮箱"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-4 control-label">登录密码</label>
+				<div class="col-sm-8">
+					<input type="password" class="form-control" placeholder="请输入登录密码"/>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-4 control-label">密码确认</label>
 				<div class="col-sm-8">
-					<input type="password" class="form-control" placeholder="请再次输入您设置的登录密码"/>
+					<input type="password" class="form-control" placeholder="请再次输入登录密码"/>
 				</div>
-			</div>			
+			</div>
+			<center class="form-group">
+				<button type="button" class="btn btn-primary" id="btn_register">注册</button>
+				<button type="button" class="btn btn-info" id="btn_login">去登录</button>
+			</center>			
 		</form>			
 	</div>
 

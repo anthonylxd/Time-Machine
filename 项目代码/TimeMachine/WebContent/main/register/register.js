@@ -2,3 +2,8 @@
 $(function(){
 
 });
+
+/* 注册  */
+function register(){
+	
+}

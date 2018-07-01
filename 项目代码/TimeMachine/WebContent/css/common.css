@@ -1,0 +1,8 @@
+body {
+    font: 14px/1.5 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+}
+.center-vertical{/*定位居中*/
+	position: relative;
+	top: 50%;
+	transform: translateY(50%);
+}

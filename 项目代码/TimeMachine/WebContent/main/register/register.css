@@ -1,1 +1,13 @@
-*{padding:0;}
+body {
+	background: #f6f6f6;
+}
+.btn {
+	width:72px;
+	margin-left:26px;
+}
+.form-group label {
+	font-size:15px;
+}
+.col-sm-8 {
+	padding-left:8px;
+}
