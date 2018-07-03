@@ -19,6 +19,15 @@ public class RegisterController {
 		return mv;
 	}
 	
+	/**验证用户名唯一性*/
+	public String checkUsername() {
+		
+		boolean result = true;
+		
+		
+		
+		return result+"";
+	}
 	
 	
 }

@@ -16,7 +16,8 @@
 			<div class="form-group">
 				<label class="col-sm-4 control-label">用户名</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" placeholder="请输入用户名"/>
+					<input id="username" type="text" class="form-control" placeholder="请输入用户名"/>
+					<span class="help-block"></span>
 				</div>
 			</div>
 			<div class="form-group">
@@ -43,7 +44,6 @@
 			</center>			
 		</form>			
 	</div>
-
 </div>
 </body>
 </html>
