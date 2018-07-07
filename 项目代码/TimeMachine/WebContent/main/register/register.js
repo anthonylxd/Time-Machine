@@ -27,5 +27,26 @@ function check(){
 		$username.parent().removeClass("has-warning has-feedback");
 		$username.parent().addClass("has-success has-feedback");
 	}
+	$.ajax({
+		type:"get",
+		url:"check",
+		dataType:"json",
+		data:{"username":username},
+		success:function(data){
+			alert("13");
+			console.log("success");
+		},
+		error:function(){
+			alert("11");
+		}
+		
+	});
+	
+}
+
+function success(){
+	
+}
+function error(){
 	
 }
