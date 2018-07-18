@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 为dao层接口方法提供sql语句配置 -->
+<mapper namespace="com.dao.RegisterDao">
+	
+<select id="checkUsername" parameterType="string" resultType="int">
+select count(1) from user_login where lower(uname) = #{_parameter}
+</select>
+	
+</mapper>
