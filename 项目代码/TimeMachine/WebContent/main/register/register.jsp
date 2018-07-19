@@ -23,19 +23,22 @@
 			<div class="form-group">
 				<label class="col-sm-4 control-label">注册邮箱</label>
 				<div class="col-sm-8">
-					<input type="password" class="form-control" placeholder="请输入注册邮箱"/>
+					<input id="regemail" type="text" class="form-control" placeholder="请输入注册邮箱"/>
+					<span class="help-block"></span>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-4 control-label">登录密码</label>
 				<div class="col-sm-8">
-					<input type="password" class="form-control" placeholder="请输入登录密码"/>
+					<input id="firpass" type="password" class="form-control" placeholder="请输入登录密码"/>
+					<span class="help-block"></span>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-4 control-label">密码确认</label>
 				<div class="col-sm-8">
-					<input type="password" class="form-control" placeholder="请再次输入登录密码"/>
+					<input id="secpass" type="password" class="form-control" placeholder="请再次输入登录密码"/>
+					<span class="help-block"></span>
 				</div>
 			</div>
 			<center class="form-group">

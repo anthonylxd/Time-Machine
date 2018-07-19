@@ -37,5 +37,13 @@ public class RegisterController {
 		return JSON.toJSONString(map);
 	}
 	
-	
+	/** 用户注册 **/
+	public String register() {
+		boolean result = true;
+		
+		
+		Map map = new HashMap();
+		map.put("result", result);
+		return JSON.toJSONString(map);
+	}
 }
