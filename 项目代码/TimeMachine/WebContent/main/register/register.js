@@ -9,8 +9,8 @@ $(function(){
 	});
 	
 	$("#regemail").change(function(){
-		if(checkEmail($("#regemail"))){
-			
+		if(checkEmail($("#regemail").val().trim())){
+			success($("#regemail"));
 		}else{
 			error($("#regemail"),"请检查注册邮箱");
 		}
@@ -39,7 +39,7 @@ function register(){
 		success($regemail);
 	}
 	
-	if(checkEmail($("#regemail"))){
+	if(checkEmail($("#regemail").val().trim())){
 		
 	}else{
 		error($("#regemail"),"请检查注册邮箱");
@@ -59,18 +59,30 @@ function register(){
 	}
 	
 	if(!checkSecPassword($firpass,$secpass)){
+		error($("#secpass"),"确认密码与登录密码不一致");
 		return false;
 	}
 	var username = $("#username").val().trim();
+	var regemail = $regemail.val().trim();
+	var firpass = $firpass.val().trim();
+	var secpass = $secpass.val().trim();
+	
 	$.ajax({
 		type:"get",
 		url:"registeruser",
 		dataType:"json",
-		data:{"username":username},
+		data:{
+			"username":username,
+			"regemail":regemail,
+			"firpass":firpass,
+			"secpass":secpass
+		},
 		success:function(data){
 			if(!data.result){
-				
+				error($("#"+data.key),data.messge);
 				return false;
+			}else{
+				alert("注册成功");
 			}
 		},
 		error:function(){
@@ -86,7 +98,7 @@ function check(){
 	if(!checkBlank($username,"用户名不能为空")){
 		return false;
 	}
-	var uPattern = /^[a-zA-Z0-9\u4E00-\u9FA5]{2,6}$/;
+	var uPattern = /^[A-Za-z0-9\u4e00-\u9fa5]+$/;
 	var result = uPattern.test(username);
 	if(!result){
 		error($username,"用户名不能含有特殊符号");
@@ -95,10 +107,12 @@ function check(){
 		success($username);
 	}
 	$.ajax({
-		type:"get",
+		type:"post",
 		url:"check",
 		dataType:"json",
-		data:{"username":username},
+		data:
+		
+		{ "username" : username,},
 		success:function(data){
 			if(!data.result){
 				error($username,'用户名已被注册');
@@ -146,7 +160,7 @@ function checkSecPassword(first,second){
 }
 
 function checkEmail(email){
-	var uPattern = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/; 
+	var uPattern = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); 
 	var result = uPattern.test(email);
 	return result;
 }

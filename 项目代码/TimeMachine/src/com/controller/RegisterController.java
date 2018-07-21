@@ -4,12 +4,16 @@ package com.controller;
  */
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.fastjson.JSON;
+import com.common.Random;
+import com.pojo.UserLogin;
 import com.service.RegisterService;
 
 @Controller
@@ -31,19 +35,29 @@ public class RegisterController {
 	@ResponseBody
 	public String checkUsername(String username) {		
 		boolean result =  registerService.checkUsername(username);
-		System.out.println("此用户名"+result);
 		Map map = new HashMap();
 		map.put("result", result);
 		return JSON.toJSONString(map);
 	}
 	
 	/** 用户注册 **/
-	public String register() {
-		boolean result = true;
-		
-		
+	@RequestMapping(value="/registeruser")
+	@ResponseBody
+	public String register(UserLogin userLogin) {
+		boolean result = false;
 		Map map = new HashMap();
-		map.put("result", result);
+		if(!userLogin.getFirpass().equals(userLogin.getSecpass())){
+			map.put("result", result);
+			map.put("key", "secpass");
+			map.put("message", "确认密码与登录密码不一致");
+		}else if(!registerService.checkUsername(userLogin.getUsername())){
+			map.put("result", result);
+			map.put("key", "username");
+			map.put("message", "用户名已被注册");
+		}else{			
+			result = registerService.register(userLogin);
+			map.put("result", result);
+		}
 		return JSON.toJSONString(map);
 	}
 }

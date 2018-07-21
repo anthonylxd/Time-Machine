@@ -10,7 +10,8 @@ select count(1) from user_login where lower(uname) = #{_parameter}
 </select>
 	
 <insert id="register">
-insert into 
+insert ignore into user_login (uid,uname,upassword,ustatus,uemail,uphone,uregtime) values 
+(#{uid},#{username},#{firpass},#{ustatus},#{regemail},#{phone},sysdate())
 </insert>
 
 </mapper>
