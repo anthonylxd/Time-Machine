@@ -25,6 +25,7 @@ $(function(){
 
 /** 注册 **/
 function register(){
+	var contextPath = window.document.location.pathname;
 	var $regemail = $("#regemail");
 	var $firpass = $("#firpass");
 	var $secpass = $("#secpass");
@@ -82,7 +83,17 @@ function register(){
 				error($("#"+data.key),data.messge);
 				return false;
 			}else{
-				alert("注册成功");
+				$(".wraper").show();
+				var interval = setInterval(function(){
+					var time = $("#wraper_time").html();
+					if(time == 0){					
+						clearInterval(interval);
+						location.href = contextPath.substring(0,contextPath.substr(1).indexOf('/')+1)+"/login/login";
+					}else{
+						time = time - 1;
+						$("#wraper_time").html(time);
+					}				
+				},1000);
 			}
 		},
 		error:function(){
