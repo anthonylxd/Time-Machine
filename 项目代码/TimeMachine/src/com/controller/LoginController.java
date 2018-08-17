@@ -14,4 +14,5 @@ public class LoginController {
 		mv.setViewName("login/login.jsp");
 		return mv;
 	}
+	
 }

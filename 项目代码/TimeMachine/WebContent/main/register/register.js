@@ -16,10 +16,8 @@ $(function(){
 		}
 	});
 	
-	$("#btn_register").click(function(){
-		
-		register();
-		
+	$("#btn_register").click(function(){		
+		register();		
 	});
 });
 
@@ -69,7 +67,7 @@ function register(){
 	var secpass = $secpass.val().trim();
 	
 	$.ajax({
-		type:"get",
+		type:"post",
 		url:"registeruser",
 		dataType:"json",
 		data:{
@@ -170,6 +168,7 @@ function checkSecPassword(first,second){
 	return true;
 }
 
+/*验证是否是邮箱*/
 function checkEmail(email){
 	var uPattern = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); 
 	var result = uPattern.test(email);
