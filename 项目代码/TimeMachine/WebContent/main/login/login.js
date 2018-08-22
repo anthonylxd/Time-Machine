@@ -5,14 +5,17 @@ $(function(){
 		login();
 	});	
 	
-
+	$("#btn_register").on("click",function(){
+		var contextPath = window.document.location.pathname;
+		location.href = contextPath.substring(0,contextPath.substr(1).indexOf('/')+1)+"/register/register";
+	});	
 });
 
 
 function login() {
 	var contextPath = window.document.location.pathname;		
     var $username = $("#username");
-    var $password = $("firpass");
+    var $firpass = $("#firpass");
 
     if(!checkBlank($username,"登录名不能为空")){
     	return false;
@@ -25,7 +28,6 @@ function login() {
 	}else{
 		success($firpass);
 	}
-    
     var result = checkEmail($username);
     if(result){
     	var parname = "email";
@@ -33,18 +35,22 @@ function login() {
     	var parname = "username";
     }
     var username = $username.val();
-    var password = $password.val();
-    
+    var password = $firpass.val();
+
     $.ajax({
-    	type:"",
-    	usr:"loginuser",
+    	type:"post",
+    	url:"loginuser",
     	dataType:"json",
     	data:{
     		parname:username,
-    		"password":
-    	}
-  
+    		"password":password
+    	},
+    	success:function(data){
+    		console.log("回应 "+data);
+    	},
+    	error:function(){
     		
+    	}
     });
 }
 

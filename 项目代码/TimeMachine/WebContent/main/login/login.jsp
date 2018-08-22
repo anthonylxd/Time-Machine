@@ -29,7 +29,7 @@
 			</div>			
 			<center class="form-group">
 				<button type="button" class="btn btn-primary" id="btn_login">登录</button>
-				<button type="button" class="btn btn-info" id="btn_login">去注册</button>
+				<button type="button" class="btn btn-info" id="btn_register">去注册</button>
 			</center>			
 		</form>	
 	</div>
