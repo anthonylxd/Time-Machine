@@ -49,7 +49,7 @@ function login() {
     		console.log("回应 "+data);
     	},
     	error:function(){
-    		
+    		console.log("问题");
     	}
     });
 }

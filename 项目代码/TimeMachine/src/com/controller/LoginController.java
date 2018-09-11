@@ -1,9 +1,14 @@
 package com.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.alibaba.fastjson.JSON;
 
 @Controller
 @RequestMapping(value="/login")
@@ -20,9 +25,11 @@ public class LoginController {
 	@ResponseBody
 	public String loginuser(String parname,String password){
 		
-		System.out.println("111 "+parname);
+		Map map = new HashMap();
 		System.out.println("222 "+password);
-		return "我要登录";
+		
+		map.put("result", "success");
+		return JSON.toJSONString(map);
 	}
 	
 	
