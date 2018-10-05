@@ -2,13 +2,12 @@ package com.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.alibaba.fastjson.JSON;
 import com.service.LoginService;
 
@@ -30,8 +29,7 @@ public class LoginController {
 	@ResponseBody
 	public String loginuser(String parname,String password){
 		
-		Map map = new HashMap();
-		System.out.println("222 "+password);		
+		Map map = new HashMap();		
 		if (!loginService.checkuser(parname)) {
 			map.put("result", "fail");
 			map.put("login", "1");
@@ -41,6 +39,7 @@ public class LoginController {
 		}else{
 			map.put("result", "success");
 			map.put("login", "0");
+			
 		}
 				
 		/**

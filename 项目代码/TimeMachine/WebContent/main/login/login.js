@@ -1,12 +1,13 @@
 /*登录*/
 $(function(){
 
+	var contextPath = window.document.location.pathname;
+	
 	$("#btn_login").on("click",function(){
 		login();
 	});	
 	
 	$("#btn_register").on("click",function(){
-		var contextPath = window.document.location.pathname;
 		location.href = contextPath.substring(0,contextPath.substr(1).indexOf('/')+1)+"/register/register";
 	});	
 });
@@ -46,10 +47,15 @@ function login() {
     		"password":password
     	},
     	success:function(data){
-    		console.log("回应 "+data);
+    		if(data.result == 'success' && data.login == '0') {
+    			location.href = contextPath.substring(0,contextPath.substr(1).indexOf('/')+1)+"/register/register";
+    		}else{
+    			error($username,"登录异常");
+    		}
+    		
     	},
     	error:function(){
-    		console.log("问题");
+    		error($username,"系统异常，请稍后重新尝试登录");
     	}
     });
 }

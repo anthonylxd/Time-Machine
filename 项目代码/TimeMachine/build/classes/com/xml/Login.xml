@@ -4,10 +4,10 @@
 
 
 <mapper namespace="com.dao.LoginDao">
-<select id="checkuser" >
+<select id="checkuser" parameterType="string" resultType="int">
 select count(1) from user_login where (lower(uname) = #{uname}) or (uemail=#{uemail});
 </select>
-<select id="loginuser" >
+<select id="loginuser" parameterType="string" resultType="int">
 select count(1) from user_login where (lower(uname) = #{uname} and upassword = #{upassword}) or (uemail=#{uemail} and upassword = #{upassword});
 </select>
 
