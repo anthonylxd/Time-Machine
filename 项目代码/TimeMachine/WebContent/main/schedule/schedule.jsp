@@ -7,6 +7,16 @@
 <title>任务管理</title>
 </head>
 <body>
+<div class="">
+	<h1>任务管理</h1>
 
+
+
+
+</div>
+
+
+
+<script type="text/javascript" src="${path}/main/schedule/schedule.js"></script>
 </body>
 </html>
